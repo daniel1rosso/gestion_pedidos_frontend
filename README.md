@@ -1,2 +1,2 @@
 # Gestión pedidos - FrontEnd
-Gestión de pedidos de soporte para sistema de gestion de escritorio - FrontEnd con framework de Angular.
+Gestión de pedidos brindando soporte a un sistema de gestión empresarial de escritorio - FrontEnd con framework de Angular.
