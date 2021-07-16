@@ -1,1 +1,87 @@
-<p>menu works!</p>
+<!-- Vertical navbar -->
+<div class="vertical-nav" id="sidebar" style="height: -webkit-fill-available">
+  <div class="container" style="padding: 0%">
+    <div
+      class="row col-12 align-items-center py-4 mb-4"
+      style="margin: 0%; background-color: rgba(255, 168, 128, 0.8)"
+    >
+      <div class="media d-flex">
+        <img
+          src="https://therichpost.com/wp-content/uploads/2020/06/avatar2.png"
+          alt="..."
+          width="65"
+          class="mr-3 rounded-circle img-thumbnail shadow-sm"
+        />
+      </div>
+      <div class="media-body" style="margin-left: 5%">
+        <b>{{ username }}</b>
+        <p class="font-weight-light mb-0" style="color: white">{{ roles }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!--<p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Menu Principal</p>-->
+
+  <ul class="nav flex-column mb-0">
+    <li class="nav-item" id="nav-item">
+      <a routerLink="/dashboard" class="nav-link text-dark">
+        <fa-icon
+          [icon]="faAlignJustify"
+          style="padding-right: inherit; color: black"
+        ></fa-icon>
+        Menu Principal
+      </a>
+    </li>
+    <li class="nav-item" id="nav-item">
+      <a routerLink="/productos" class="nav-link text-dark">
+        <fa-icon
+          [icon]="faBox"
+          style="padding-right: inherit; color: black"
+        ></fa-icon>
+        Productos
+      </a>
+    </li>
+    <div *ngIf="isPermision" id="nav-item">
+      <li class="nav-item" id="nav-item">
+        <a routerLink="/usuarios" class="nav-link text-dark">
+          <fa-icon
+            [icon]="faUsers"
+            style="padding-right: inherit; color: black"
+          ></fa-icon>
+          Usuarios
+        </a>
+      </li>
+    </div>
+    <li class="nav-item" id="nav-item">
+      <a routerLink="/pedidos" class="nav-link text-dark">
+        <fa-icon
+          [icon]="faTrunk"
+          style="padding-right: inherit; color: black"
+        ></fa-icon>
+        Pedidos
+      </a>
+    </li>
+    <li class="nav-item" id="nav-item">
+      <a routerLink="/cliente" class="nav-link text-dark">
+        <fa-icon
+          [icon]="faUser"
+          style="padding-right: inherit; color: black"
+        ></fa-icon>
+        Clientes
+      </a>
+    </li>
+  </ul>
+
+  <!--<div class="cerrarSesion">
+    <a class="dropdown-item" style="cursor: pointer; text-align: center;"><fa-icon [icon]="faSignOutAlt"></fa-icon><i class="fas fa-door-open" ></i> Cerrar Sesión</a>
+  </div>-->
+
+  <div>
+    <a class="h-button centered" data-text="Cerrar Sesion" (click)="onLogOut()">
+      <span>¡Hasta Luego!</span>
+    </a>
+  </div>
+</div>
+<!-- End vertical navbar -->
+
+<!-- Page content holder -->
