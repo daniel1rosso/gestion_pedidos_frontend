@@ -20,11 +20,9 @@
     </div>
   </div>
 
-  <!--<p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Menu Principal</p>-->
-
   <ul class="nav flex-column mb-0">
     <li class="nav-item" id="nav-item">
-      <a routerLink="/dashboard" class="nav-link text-dark">
+      <a routerLink="/panel" class="nav-link text-dark">
         <fa-icon
           [icon]="faAlignJustify"
           style="padding-right: inherit; color: black"
@@ -41,17 +39,6 @@
         Productos
       </a>
     </li>
-    <div *ngIf="isPermision" id="nav-item">
-      <li class="nav-item" id="nav-item">
-        <a routerLink="/usuarios" class="nav-link text-dark">
-          <fa-icon
-            [icon]="faUsers"
-            style="padding-right: inherit; color: black"
-          ></fa-icon>
-          Usuarios
-        </a>
-      </li>
-    </div>
     <li class="nav-item" id="nav-item">
       <a routerLink="/pedidos" class="nav-link text-dark">
         <fa-icon
@@ -62,7 +49,7 @@
       </a>
     </li>
     <li class="nav-item" id="nav-item">
-      <a routerLink="/cliente" class="nav-link text-dark">
+      <a routerLink="/clientes" class="nav-link text-dark">
         <fa-icon
           [icon]="faUser"
           style="padding-right: inherit; color: black"
@@ -71,10 +58,6 @@
       </a>
     </li>
   </ul>
-
-  <!--<div class="cerrarSesion">
-    <a class="dropdown-item" style="cursor: pointer; text-align: center;"><fa-icon [icon]="faSignOutAlt"></fa-icon><i class="fas fa-door-open" ></i> Cerrar Sesión</a>
-  </div>-->
 
   <div>
     <a class="h-button centered" data-text="Cerrar Sesion" (click)="onLogOut()">

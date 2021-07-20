@@ -139,5 +139,5 @@ body {
   background: rgba(198, 140, 255, 0.7);
 }
 .h-button:active {
-  background: #300c0b;
+  background: rgba(198, 140, 255, 1);
 }
