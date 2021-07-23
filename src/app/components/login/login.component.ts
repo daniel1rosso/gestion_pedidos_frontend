@@ -31,7 +31,37 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onLogin(){
+  onLogin(): void {
+    this.loginUsuario = new LoginUsuario(this.username, this.password);
 
+    this.loginService.login(this.loginUsuario).subscribe(
+      data => {
+        if(data.success ){
+          this.isLogged = true;
+          this.isLoginFail = false;
+
+          this.tokenService.setToken(data.token);
+          this.tokenService.setUserName(data.username);
+          this.tokenService.setAuthorities(data.authorities.authority);
+          this.tokenService.setName(data.username);
+
+          this.tokenService.setId(data.id);
+          this.roles = data.authorities;
+          this.router.navigate(['/panel']);
+
+        }else{
+          this.isLogged = false;
+          this.isLoginFail = true;
+          this.router.navigate(['/']);
+          console.log(data)
+          Swal.fire({
+            title: 'Usuario o Contraseña incorrecta',
+            icon: 'warning',
+            confirmButtonColor: "#F70C0C",
+            confirmButtonText: 'Continuar',
+          })
+        }
+      }
+    )
   }
 }

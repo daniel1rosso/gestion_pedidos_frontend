@@ -5,14 +5,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductoComponent } from './components/producto/producto.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
 import { PedidoComponent } from './components/pedido/pedido.component';
+import { ProdGuardService} from './guards/prod-guard.service';
 
 const routes: Routes = [
   {path: '', component:LoginComponent},
   {path: 'login', component:LoginComponent},
-  {path: 'panel', component:DashboardComponent },
-  {path: 'productos', component:ProductoComponent },
-  {path: 'clientes', component:ClienteComponent },
-  {path: 'pedidos', component:PedidoComponent },
+  {path: 'panel', component:DashboardComponent, canActivate : [ProdGuardService] },
+  {path: 'productos', component:ProductoComponent, canActivate : [ProdGuardService] },
+  {path: 'clientes', component:ClienteComponent, canActivate : [ProdGuardService] },
+  {path: 'pedidos', component:PedidoComponent, canActivate : [ProdGuardService] },
   {path: '**', redirectTo: ""}
 ];
 

@@ -18,7 +18,6 @@ export class ProdGuardService implements CanActivate {
     const expectedRol = route.data.expectedRol;
     const rol = this.tokenService.getAuthorities();
     if (rol){
-
       return true
     }else {
       this.router.navigate(['/']);
