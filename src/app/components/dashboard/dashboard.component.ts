@@ -1,11 +1,7 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { formatDate} from '@angular/common'
 import { faSun, faMoon, faUserCheck, faBox, faUsers, faTruck, faUser } from '@fortawesome/free-solid-svg-icons';
-//import { Cliente } from 'src/app/models/cliente/cliente.module';
-//import { TokenService } from 'src/app/service/token.service';
-//import { Producto } from 'src/app/models/producto/producto.module';
-//import { Usuario } from 'src/app/models/usuario/usuario.module';
-//import { Pedido } from 'src/app/models/pedido/pedido.module';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,16 +18,12 @@ export class DashboardComponent implements OnInit {
   saludo: any = [];
   saludo_:any = {}
   today = Date.now();
-  //pedidos : Pedido[] = [];
-  //clientes : Cliente[] = [];
-  //productos : Producto[] = [];
-  //usuarios : Usuario[] = [];
   roles: string = "";
   name: string = "";
   username: string = "";
   date = "";
 
-  constructor() { }
+  constructor(private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.date = formatDate(this.today, 'HH:MM', 'en-ES', 'UTC−0300');
@@ -40,26 +32,8 @@ export class DashboardComponent implements OnInit {
 
 
     this.roles = "Administrador"
-    this.name = "Test"
-    this.username = "Test"
-
-    //this.name = this.tokenService.getName()
-
-    //this.roles = this.tokenService.getAuthorities();
-    //this.username = this.tokenService.getUserName();
-    //if(this.roles != "Administrador" && this.roles != "SuperAdministrador"){
-      //document.getElementById("tarjeta1").classList.remove("col-xl-3");
-      //document.getElementById("tarjeta1").classList.add("col-xl-4");
-
-      //document.getElementById("tarjeta2").classList.remove("col-xl-3");
-      //document.getElementById("tarjeta2").classList.add("col-xl-4");
-
-      //document.getElementById("tarjeta3").classList.remove("col-xl-3");
-      //document.getElementById("tarjeta3").classList.add("col-xl-4");
-
-      //document.getElementById("tarjeta4").style.display = "none";
-    //}
-
+    this.username = this.tokenService.getUserName()
+    this.name = this.tokenService.getName()
   }
 
   saludar(){
