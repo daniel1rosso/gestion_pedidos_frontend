@@ -14,24 +14,13 @@
         <!-- Demo content -->
         <table mat-table class="mat-elevation-z8 tab" id="tabla">
           <thead class="table-info">
+            <th>Codigo</th>
             <th>Cliente</th>
-            <th>Fecha</th>
-            <th>Descuento</th>
-            <th>Total</th>
-            <th>Acciones</th>
           </thead>
           <tbody>
             <tr *ngFor="let p of pedido | paginate: { itemsPerPage: 6, currentPage: p } ; let i = index">
               <td>{{ p.cliente }}</td>
               <td>{{ p.fecha }}</td>
-              <td>{{ p.descuento }}</td>
-              <td>{{ p.total }}</td>
-              <td>
-                <button type="button" class="btn btn-outline-danger m-2" (click)="eliminarCliente(i, c)"> Eliminar
-                </button>
-                <button type="button" class="btn btn-outline-dark m-2" (click)="modificarClienteData(c)"> Modificar
-                </button>
-              </td>
             </tr>
           </tbody>
         </table>

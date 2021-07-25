@@ -48,7 +48,6 @@ export class LoginComponent implements OnInit {
           this.tokenService.setId(data.id);
           this.roles = data.authorities;
           this.router.navigate(['/panel']);
-
         }else{
           this.isLogged = false;
           this.isLoginFail = true;
@@ -64,6 +63,4 @@ export class LoginComponent implements OnInit {
       }
     )
   }
-
-
 }
